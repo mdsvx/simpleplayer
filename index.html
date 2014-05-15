@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>simple sc player</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">  
+  <link rel="stylesheet" href="css/slider.css"> 
+  <link rel="stylesheet" href="css/style.css">    
+</head>
+
+<body>
+	<div id="nav" class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-play-circle"></span>simple sc player</a>
+			</div>
+			<!-- /.navbar-header -->
+			<div class="collapse navbar-collapse">	
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" id="import" data-toggle="tooltip" data-placement="bottom" title="Import tracks"><span class="glyphicon glyphicon-floppy-save"></span></a></li>
+					<li><a href="#" id="export" data-toggle="tooltip" data-placement="bottom" title="Export tracks"><span class="glyphicon glyphicon-floppy-open"></span></a></li>
+					<li><a href="#" id="clear" data-toggle="tooltip" data-placement="bottom" title="Clear tracks"><span class="glyphicon glyphicon-floppy-remove"></span></a></li>				
+				</ul>
+				
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>	
+	</div>
+	<!-- /.navbar -->
+	<div id="main" class="container-fluid" role="main">		
+		<div class="row row-offcanvas row-offcanvas-left">
+			<div class="col-xs-0 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+				  <div class="list-group">
+					<div id="playlist">
+					</div>
+				  </div>
+			</div><!-- /.col (sidebar)-->
+			<div class="col-xs-12 col-sm-9">
+				<div id="results-display" class="table-responsive" >
+					<table id="results-table" class="table table-hover">
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+			</div><!-- /.col (results)-->
+		</div><!--/row-->			
+	</div>
+	<!-- /.main -->
+	<div id="footer">
+		<div id="custom_player" class="player">
+			<div class="custom_player_title empty"></div>
+			<div class="players_controls">
+				<a href="#" id="player_prev" class="playerButton playerStep inactive"><span class="glyphicon glyphicon-fast-backward"></a>
+				<a href="#" id="play_bttn" class="playerButton inactive"><span class="glyphicon glyphicon-play"></a>
+				<a href="#" id="player_next" class="playerButton playerStep inactive"><span class="glyphicon glyphicon-fast-forward"></a>
+			</div>
+			<!--/player controls-->				
+			<div class="volume_controls">
+				<a href="#" id="mute" class="playerButton"><span class="glyphicon glyphicon-volume-up"></span></a>
+				<input id="volumeControl" data-slider-id='volumeSlider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
+							
+			</div>
+			<!--/volume controls-->			
+			<div class="player-info" style="display: none;">
+				<div class="track-time"></div>	
+				<div class="total-time"></div>				
+			</div>
+			<!--/player info-->			
+		</div>
+		<!--/custom player-->
+	</div>
+	<!-- /.footer -->	
+
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+	<script data-main="js/app" src="js/libs/require.js"></script>
+</body>
+</html>

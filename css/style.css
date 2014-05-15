@@ -1,0 +1,197 @@
+/* global */
+body {
+	background-color: #f0f0f0;
+}
+
+#submit-bttn {
+	color: #000;
+	font-weight: bold;
+}
+div#main {
+	padding: 84px 0px;
+	max-width: 1280px;
+}
+div#results-display {
+	padding: 0 84px 0 0;
+}
+.tooltip {
+  white-space: nowrap;
+}
+/* navbar */
+#nav {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.navbar-brand > span.glyphicon-play-circle {
+	padding: 0 6px;
+    top: 4px;
+}
+#import:hover,
+#export:hover {
+  /* cursor: pointer; */
+}
+/* --navbar */
+/* sidebar*/
+div#sidebar a {
+	font-size: 80%;
+	padding: 8px;
+	border-radius: 0;
+	overflow: hidden;
+		white-space: nowrap;
+}
+div#sidebar span.playlist-title {
+	cursor: pointer;
+}
+div#sidebar span.glyphicon-remove {
+	cursor: pointer;
+	float: right;
+}
+
+/* --sidebar*/
+/* Footer */
+div#footer {
+	z-index: 5;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+    color: #ccc;
+	background: #111;
+	box-shadow: 0 -1px 3px rgba(0,0,0,0.4);
+}
+#footer .total-time,
+#footer .track-time {
+	display: inline-block;
+}
+/* --Footer */
+
+/* Player */
+div.player {
+  padding: 5px 10px;
+  width: 100%;
+  text-align: center;
+}
+div.custom_player_title.empty {
+		height: 0px;
+		opacity: 0;
+		-webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+}
+div.custom_player_title.filled {
+		padding: 0 5px;
+		height: 25px;
+		opacity: 1;
+		-webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+}
+div.players_controls {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+div#custom_player {}
+/* --Player */
+
+/* Results */
+#results-table tr.track-row {
+	font-size: 1.2em;
+	padding: 20px 0;
+	border-top: 1px solid #ddd;
+	cursor: pointer;
+}
+#results-table td {
+	vertical-align: middle;
+}
+#results-table tr.track-row  td.track-title { 
+  max-width: 55%;
+}
+#results-table tr.track-row img {
+	padding: 0 10px;
+	width: 120px; /* orig size = 120x100*/
+}
+#results-table td.track-image {
+	width: 100px;
+}
+#results-table tr.track-row  td.play-me { 
+	width: 20%;
+	text-align: right;
+}
+#results-table tr.track-row a {
+	padding: 5px 5px;
+}
+#results-table a.play-on-soundcloud {
+  font-size: 65%;
+}
+
+/* reorganise all in one */
+@media (max-width: 767px) { 
+
+}
+
+/* --Results */
+
+/* Buttons */
+.playerButton {
+	display:inline-block;
+	cursor:pointer;
+	color:#ccc;
+	font-size:20px;
+	padding: 0 7px;
+	text-decoration:none;
+	text-shadow: 1px 1px 1px #555;
+	-webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.playerButton:hover {
+	color: #fff;
+	text-shadow: 0px 0px 8px #ccc;
+	-webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+.playerButton:active .glyphicon {
+	position:relative;
+	top: 3px;
+	color: #aaa;
+	text-shadow: 0px 0px 8px #396;
+	-webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+/* inactive buttons */
+.playerButton.inactive {
+	cursor: default;
+	color:#888;
+}
+.playerButton.inactive:hover {
+	cursor: default;
+	text-shadow: 1px 1px 1px #555;
+	color:#888;
+}
+.playerButton.inactive:active .glyphicon {
+	cursor: default;
+	position:relative;
+	text-shadow: 1px 1px 1px #555;
+	top: 1px;
+	color: #333;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .2s;
+}
+/* volume slider */
+#volumeSlider .slider-track {
+  height: 5px;
+}
+#volumeSlider .slider-handle.round {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-left: -9px;
+  margin-top: -3px;
+  width: 10px;
+  height: 10px;  
+}
+/* buttons end */
