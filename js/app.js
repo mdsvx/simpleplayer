@@ -38,7 +38,7 @@ require([ "jquery", "bootstrap", "bsSlider", "scplayer", "scplayer.gui", "trackl
 			// assign player GUI functions
 			playerGUI.initControls();
 			
-			// set variables
+			// set dom selectors, obj keys ...
 			tracklistManager.setTracksTableSelector('#results-table > tbody');
 			tracklistManager.setResultsSelector('#results-table tr.track-row');
 			var tracklistKey = 'scPlayerTracks';
@@ -49,7 +49,8 @@ require([ "jquery", "bootstrap", "bsSlider", "scplayer", "scplayer.gui", "trackl
 			$('#clear').tooltip();
 			
 			$('#import').on('click',function() {						
-				tracklistManager.loadJTrackList( storage.retrieveObject(tracklistKey) );			
+				tracklistManager.loadJTrackList( storage.retrieveObject(tracklistKey) );
+				$('#results-table').show(500);  // TODO execute show() after loadjtracklist() is over
 			});
 			
 			$('#export').on('click',function() {
@@ -58,7 +59,7 @@ require([ "jquery", "bootstrap", "bsSlider", "scplayer", "scplayer.gui", "trackl
 					storage.storeObject( tracklistKey, tracklistManager.makeJTrackList() );
 				} else { 
 					/* code if not found */ 
-					alert('No tracks to be saved !');
+					alert('No tracks to be saved !'); // use bs popovers instead
 				}
 				
 			});
@@ -66,7 +67,8 @@ require([ "jquery", "bootstrap", "bsSlider", "scplayer", "scplayer.gui", "trackl
 			$('#clear').on('click',function() {						
 				if( $( tracklistManager.getResultsSelector() ).length ) { 
 					/* code if element found */ 
-					$( tracklistManager.getResultsSelector() ).remove();
+					$('#results-table').hide(500);
+					$( tracklistManager.getResultsSelector() ).remove();	// TODO execute remove() after hide() is over	
 				} else { 
 					/* code if not found */ 
 					alert('No tracks to be cleared !');

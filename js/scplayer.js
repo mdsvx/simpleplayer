@@ -150,6 +150,11 @@ define( 'scplayer', ['jquery'], function($) {
 			
 			setPlaybackVolume: function(value) {
 				objLoadedTrack.setVolume(value);
+			},
+			setTrackPosition: function(value) {
+				// add tests : value must be a nb / value must not exceed track's total  length
+				// value is in millisec
+				objLoadedTrack.setPosition(value);
 			}
 			
    /* * --PLAYER  FUNCTIONS * */

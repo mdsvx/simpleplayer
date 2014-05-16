@@ -11,11 +11,12 @@ div#main {
 	padding: 84px 0px;
 	max-width: 1280px;
 }
-div#results-display {
-	padding: 0 84px 0 0;
-}
 .tooltip {
   white-space: nowrap;
+}
+#main .col-xs-0.col-sm-3 {
+  padding-left: 5px;
+  padding-right: 0px;
 }
 /* navbar */
 #nav {
@@ -96,7 +97,7 @@ div#custom_player {}
 
 /* Results */
 #results-table tr.track-row {
-	font-size: 1.2em;
+	font-size: 12px;
 	padding: 20px 0;
 	border-top: 1px solid #ddd;
 	cursor: pointer;
@@ -109,21 +110,24 @@ div#custom_player {}
 }
 #results-table tr.track-row img {
 	padding: 0 10px;
-	width: 120px; /* orig size = 120x100*/
+	width: 60px; /* orig size = 120x100*/
 }
 #results-table td.track-image {
-	width: 100px;
-}
-#results-table tr.track-row  td.play-me { 
-	width: 20%;
-	text-align: right;
+	min-width: 60px;
 }
 #results-table tr.track-row a {
 	padding: 5px 5px;
 }
-#results-table a.play-on-soundcloud {
-  font-size: 65%;
+#results-table p {
+  margin: 0;
 }
+#results-table td {
+  padding: 1px;
+}
+#results-table th {
+  padding: 1px;
+}
+
 
 /* reorganise all in one */
 @media (max-width: 767px) { 

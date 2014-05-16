@@ -39,26 +39,32 @@
 	<div id="main" class="container-fluid" role="main">		
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-0 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-				  <div class="list-group">
-					<div id="playlist">
-					</div>
-				  </div>
-			</div><!-- /.col (sidebar)-->
-			<div class="col-xs-12 col-sm-9">
 				<div id="results-display" class="table-responsive" >
-					<table id="results-table" class="table table-hover">
-						<tbody>
-							
-						</tbody>
+					<table id="results-table" class="table table-hover" style="display: none;">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Artist</th>
+								<th>Track</th> 
+							</tr>
+						</thead>
+						<tbody></tbody>
 					</table>
-				</div>
+				</div>			
+			</div><!-- /.col (sidebar)-->
+			<div class="col-xs-12 col-sm-9">				
 			</div><!-- /.col (results)-->
 		</div><!--/row-->			
 	</div>
 	<!-- /.main -->
 	<div id="footer">
 		<div id="custom_player" class="player">
-			<div class="custom_player_title empty"></div>
+			<div class="player-info" style="display: none;">
+				<div class="custom_player_title empty"></div>
+				<div class="track-time"></div>	
+				<div class="total-time"></div>				
+			</div>
+			<!--/player info-->			
 			<div class="players_controls">
 				<a href="#" id="player_prev" class="playerButton playerStep inactive"><span class="glyphicon glyphicon-fast-backward"></a>
 				<a href="#" id="play_bttn" class="playerButton inactive"><span class="glyphicon glyphicon-play"></a>
@@ -71,11 +77,8 @@
 							
 			</div>
 			<!--/volume controls-->			
-			<div class="player-info" style="display: none;">
-				<div class="track-time"></div>	
-				<div class="total-time"></div>				
-			</div>
-			<!--/player info-->			
+			
+				
 		</div>
 		<!--/custom player-->
 	</div>
