@@ -2,8 +2,6 @@
  *
  *     Load tracks from JSON file, not localstorage
  *
- *     PlayPrev-PlayNext buttons
- *
  *     Trigger function when track finished ( SM2 event not working correctly )
  *
  *     Add a 'search tracks' page, make a playlist by selecting tracks and save it to a jsonfile then send tracks ids to player	
@@ -72,9 +70,6 @@ require([ "jquery", "bootstrap", "bsSlider", "scplayer", "scplayer.gui", "trackl
 				});				
 			});
 			
-			var loadAlert = "<div class='alert alert-danger alert-dismissable'>\
-										<button type='button' class='close' data-dismiss='alert' \
-										aria-hidden='true'>&times;</button>Error while loading track.</div>";
 			$('#export').on('click',function() {
 				if( $( tracklistManager.getResultsSelector() ).length ) { 
 					/* code if element found */ 

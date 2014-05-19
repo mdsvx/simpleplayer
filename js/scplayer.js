@@ -75,10 +75,7 @@ define( 'scplayer', ['jquery'], function($) {
 			},
 			
 			
-  /* * * * * * * * * * * * */	
- /* * * * * * * * * * * * */
 /* * PLAYER  FUNCTIONS * */
-
 			
 			playTrack : function(track_id) 
 			{
@@ -134,10 +131,9 @@ define( 'scplayer', ['jquery'], function($) {
 						$('#custom_player .track-time').html(minutes + ':' + seconds);
 					  },500);						  
 					
-					/* TBA : when finished play next playlist index */
+					/* Todo: when finished play next playlist index */
 					
-				});
-				
+				});				
 			}, /* playTrack end */
 			
 			pauseCurrentTrack: function() {

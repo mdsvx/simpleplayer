@@ -10,17 +10,14 @@ define( 'tracklist.mgr', ['jquery'], function($) {
 			// SETS
 			setResultsSelector: function(newValue) {
 				resultsSelector = newValue;		
-			},
-			
+			},			
 			setTracksTableSelector: function(newValue) {
 				tracksTableSelector = newValue;		
-			},
-			
+			},			
 			// GETS
 			getResultsSelector: function(newValue) {
 				return resultsSelector;		
-			},
-			
+			},			
 			getTracksTableSelector: function(newValue) {
 				return tracksTableSelector;		
 			},
@@ -43,22 +40,18 @@ define( 'tracklist.mgr', ['jquery'], function($) {
 									+ '","imageUrl":"' + imageUrl + '"}';			
 					
 					jsonTrackList['trackList'].push(JSON.parse(jTrackStr));
-				});
-				
-				return jsonTrackList;
-				
+				});				
+				return jsonTrackList;				
 		  }, // --makeJTrackList
 		  
 		  // Load tracklist from json object into 'tracksTableSelector' table
-		  loadJTrackList : function(jTrackList, callback) {
-		  
+		  loadJTrackList : function(jTrackList, callback) {		  
 			$.each(jTrackList["trackList"], function(index,item) {				
 				var newRow = '<tr data-track-id="' + item.id + '" class="track-row ' + index + '">'  +
 								'<td class="track-image "><img src="' + item.imageUrl + '"></td>' +
 								'<td class="track-artist"><p class="p-trackUser">' + item.trackUser + '</p></td>' +
 								'<td class="track-title"><p class="p-trackTitle">' + item.trackTitle + '</p></td></tr>';
-				$(tracksTableSelector).append(newRow);
-				
+				$(tracksTableSelector).append(newRow);				
 			});			
 			callback();		  
 		  } // --loadJTrackList
