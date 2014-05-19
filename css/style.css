@@ -17,6 +17,11 @@ div#main {
 #main .col-xs-0.col-sm-3 {
   padding-left: 5px;
   padding-right: 0px;
+  left: -30%;
+  transition: left 700ms cubic-bezier(.62,.96,1,.89);
+}
+#main .col-xs-0.col-sm-3.visible {
+  left: 0%;
 }
 /* navbar */
 #nav {

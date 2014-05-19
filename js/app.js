@@ -9,8 +9,24 @@
  *     Add a 'search tracks' page, make a playlist by selecting tracks and save it to a jsonfile then send tracks ids to player	
  *      ... or create remove buttons on each track list lines + add track functionality (?) 
  *
- */	
-	
+ */	 
+ // for css transitions detection
+ function whichTransitionEvent(){
+    var t;
+    var el = document.createElement('fakeelement');
+    var transitions = {
+      'transition':'transitionend',
+      'OTransition':'oTransitionEnd',
+      'MozTransition':'transitionend',
+      'WebkitTransition':'webkitTransitionEnd'
+    }
+
+    for(t in transitions){
+        if( el.style[t] !== undefined ){
+            return transitions[t];
+        }
+    }
+}	
 // requireJS conf
 require.config({
    paths : {
@@ -43,38 +59,52 @@ require([ "jquery", "bootstrap", "bsSlider", "scplayer", "scplayer.gui", "trackl
 			tracklistManager.setResultsSelector('#results-table tr.track-row');
 			var tracklistKey = 'scPlayerTracks';
 			
-			// import/export buttons
+			// import/export/clear buttons
 			$('#import').tooltip();
 			$('#export').tooltip();
 			$('#clear').tooltip();
 			
-			$('#import').on('click',function() {						
-				tracklistManager.loadJTrackList( storage.retrieveObject(tracklistKey) );
-				$('#results-table').show(500);  // TODO execute show() after loadjtracklist() is over
+			$('#import').on('click',function() {
+				tracklistManager.loadJTrackList( storage.retrieveObject(tracklistKey), function() {
+					if ( !$('.col-xs-0.col-sm-3').hasClass('visible') ) {
+						$('.col-xs-0.col-sm-3').addClass("visible"); 
+					}
+				});				
 			});
 			
+			var loadAlert = "<div class='alert alert-danger alert-dismissable'>\
+										<button type='button' class='close' data-dismiss='alert' \
+										aria-hidden='true'>&times;</button>Error while loading track.</div>";
 			$('#export').on('click',function() {
 				if( $( tracklistManager.getResultsSelector() ).length ) { 
 					/* code if element found */ 
 					storage.storeObject( tracklistKey, tracklistManager.makeJTrackList() );
 				} else { 
 					/* code if not found */ 
-					alert('No tracks to be saved !'); // use bs popovers instead
-				}
-				
+					// use bs popovers ??
+					$('#main').prepend("<div class='alert alert-warning alert-dismissable'>\
+										<button type='button' class='close' data-dismiss='alert' \
+										aria-hidden='true'>&times;</button>No tracks to be saved !</div>");
+				}				
 			});
 			
 			$('#clear').on('click',function() {						
 				if( $( tracklistManager.getResultsSelector() ).length ) { 
-					/* code if element found */ 
-					$('#results-table').hide(500);
-					$( tracklistManager.getResultsSelector() ).remove();	// TODO execute remove() after hide() is over	
+					var transitionEnd = whichTransitionEvent();
+					$('.col-xs-0.col-sm-3').on(transitionEnd, function() {
+						$( tracklistManager.getResultsSelector() ).remove();
+						$('.col-xs-0.col-sm-3').off();
+					});
+					if ( $('.col-xs-0.col-sm-3').hasClass('visible') ) {
+						$('.col-xs-0.col-sm-3').removeClass("visible"); 
+					}					
 				} else { 
-					/* code if not found */ 
-					alert('No tracks to be cleared !');
+					$('#main').prepend("<div class='alert alert-warning alert-dismissable'>\
+										<button type='button' class='close' data-dismiss='alert' \
+										aria-hidden='true'>&times;</button>No tracks to be cleared !</div>");
 				}	
-			});
+			}); // --clearClick
+			// --import/export/clear buttons
 			
-		});// --docready
-				
+		});// --docready				
 });// --require

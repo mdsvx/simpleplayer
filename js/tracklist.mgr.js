@@ -50,7 +50,7 @@ define( 'tracklist.mgr', ['jquery'], function($) {
 		  }, // --makeJTrackList
 		  
 		  // Load tracklist from json object into 'tracksTableSelector' table
-		  loadJTrackList : function(jTrackList) {
+		  loadJTrackList : function(jTrackList, callback) {
 		  
 			$.each(jTrackList["trackList"], function(index,item) {				
 				var newRow = '<tr data-track-id="' + item.id + '" class="track-row ' + index + '">'  +
@@ -59,8 +59,8 @@ define( 'tracklist.mgr', ['jquery'], function($) {
 								'<td class="track-title"><p class="p-trackTitle">' + item.trackTitle + '</p></td></tr>';
 				$(tracksTableSelector).append(newRow);
 				
-			});
-		  
+			});			
+			callback();		  
 		  } // --loadJTrackList
 		  
 		}; /* return end */
